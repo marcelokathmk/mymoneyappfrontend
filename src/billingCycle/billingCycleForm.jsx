@@ -9,17 +9,17 @@ class BillingCycleForm extends Component {
 
     render() {
 
-        const { handleSubmit }  = this.props
+        const { handleSubmit, readOnly, submitClass, submitLabel }  = this.props
 
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component={labelAndInput} label='Nome' placeholder='Informe o nome' cols='12 4' />
-                    <Field name='month' component={labelAndInput} label='Mês' type='number' placeholder='Informe o mês' cols='12 4' />
-                    <Field name='year' component={labelAndInput} label='Ano' type='number' placeholder='Informe o ano' cols='12 4' />
+                    <Field name='name' component={labelAndInput} label='Nome' placeholder='Informe o nome' cols='12 4' readOnly={readOnly} />
+                    <Field name='month' component={labelAndInput} label='Mês' type='number' placeholder='Informe o mês' cols='12 4' readOnly={readOnly} />
+                    <Field name='year' component={labelAndInput} label='Ano' type='number' placeholder='Informe o ano' cols='12 4' readOnly={readOnly} />
                 </div>
                 <div className='box-footer'>
-                    <button type='submit' className='btn btn-primary'>Submit</button>
+                    <button type='submit' className={`btn btn-${this.props.submitClass}`}>{this.props.submitLabel}</button>
                     <button type='button' className='btn btn-default' onClick={this.props.init}>Cancelar</button>
                 </div>
 
